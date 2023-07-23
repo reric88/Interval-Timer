@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Timer" />
+    <meta name="author" content="Eric Collard" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/9fbf6c4d27.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+    ></script>
+    <title>Timer</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- <div class="countdown-window"></div> -->
+
+      <div class="button-window">
+
+        <div class="left-buttons">
+            <div class="display-div">
+                <h1>INTERVAL</h1><span id="interval-display">--</span>
+            </div>
+            <div class="track-div">
+                <div class="track" id="interval-toggle">
+                    <div class="slider"></div>
+                    <span class="on-off switch-off">OFF</span>
+                    <span class="on-off switch-on">ON</span>
+                </div>
+                <button id="interval-lock"><i class="fa-solid fa-lock-open"></i></button>
+            </div>
+          <div class="selected-value-div">
+            <p>Minimum (seconds)</p>
+                  <div class="bd"><button class="adjustment-buttons" id="min-interval-decrease">-</button>
+                    <div id="min-interval-value"></div>
+                    <button class="adjustment-buttons" id="min-interval-increase">+</button></div>
+              <!-- </div> -->
+          </div>
+          
+          <div class="selected-value-div">
+              <p>Maximum (seconds)</p>
+                  <div class="bd"><button class="adjustment-buttons" id="max-interval-decrease">-</button>
+                    <div id="max-interval-value"></div>
+                    <button class="adjustment-buttons" id="max-interval-increase">+</button></div>
+          </div>
+          <!-- <div class="input-div"><p>Max selected:</p>
+            <input type="number" id="interval-selected" /></div> -->
+          <!-- <button class="timer-button" id="interval-down">-5s</button> -->
+        </div>
+
+        <div class="right-buttons">
+            <div class="display-div">
+                <h1>BPM</h1>
+                <span id="bpm-display">--</span>
+            </div>
+          <!-- <button class="timer-button" id="bpm-up">+10s</button> -->
+          <div class="track" id="bpm-toggle">
+                <div class="slider"></div>
+                <span class="on-off switch-off">OFF</span>
+                <span class="on-off switch-on">ON</span>
+          </div>
+          <div class="selected-value-div">
+                <p>Minimum</p>
+                <div class="bd">
+                    <button class="adjustment-buttons" id="min-bpm-decrease">-</button>
+                <div id="min-bpm-value"></div>
+                <button class="adjustment-buttons" id="min-bpm-increase">+</button>
+                </div>
+            <!-- </div> -->
+        </div>
+          <!-- <p>BPM: </p> -->
+          <div class="selected-value-div">
+            <p>Maximum</p>
+            <!-- <div class="adjustment-buttons-div"> -->
+                <div class="bd"><button class="adjustment-buttons" id="max-bpm-decrease">-</button>
+                    <div id="max-bpm-value"></div>
+                    <button class="adjustment-buttons" id="max-bpm-increase">+</button></div>
+            <!-- </div> -->
+        </div>
+          <!-- <div class="input-div">
+              <p>Min selected:</p>
+              <input type="number" id="bpm-selected" />
+          </div> -->
+          <!-- <button class="timer-button" id="bpm-down">-10s</button> -->
+        </div>
+
+      </div><div class="rest-buttons">
+      <div class="display-div">
+        <h1>REST</h1>
+        <span id="rest-display">--</span>
+    </div>
+    <div class="track" id="rest-toggle">
+                    <div class="slider"></div>
+                    <span class="on-off switch-off">OFF</span>
+                    <span class="on-off switch-on">ON</span>
+    </div>
+      <div class="selected-value-div">
+        <p>Minimum (seconds)</p>
+            <div class="bd"><button class="adjustment-buttons" id="min-rest-decrease">-</button>
+                <div id="min-rest-value"></div>
+                <button class="adjustment-buttons" id="min-rest-increase">+</button></div>
+    </div>
+      <div class="selected-value-div">
+        <p>Maximum (seconds)</p>
+            <div class="bd"><button class="adjustment-buttons" id="max-rest-decrease">-</button>
+                <div id="max-rest-value"></div>
+                <button class="adjustment-buttons" id="max-rest-increase">+</button></div>
+    </div>
+      </div>
+      <div class="start-stop">
+        <button class="start-stop-buttons fade" id="stop-button" disabled>STOP</button>
+        <button class="start-stop-buttons" id="start-button">START</button>
+      </div>
+    </div>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
