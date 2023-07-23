@@ -20,6 +20,11 @@ const maxRestVal = document.querySelector("#max-rest-value");
 const maxRestUp = document.querySelector("#max-rest-increase");
 const maxRestDown = document.querySelector("#max-rest-decrease");
 
+const intervalToggle = document.querySelector("#interval-toggle");
+const bpmToggle = document.querySelector("#bpm-toggle");
+const restToggle = document.querySelector("#rest-toggle");
+const toggles = document.querySelectorAll(".track");
+
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -42,6 +47,7 @@ let isLocked = false;
 let restId = null;
 let restValue;
 let handleRest;
+let handleTimer;
 
 function loadSound(url) {
   return new Promise((resolve, reject) => {
@@ -194,10 +200,7 @@ maxRestUp.addEventListener("click", () => {
   maxRestVal.innerHTML = restMax;
 });
 
-const intervalToggle = document.querySelector("#interval-toggle");
-const bpmToggle = document.querySelector("#bpm-toggle");
-const restToggle = document.querySelector("#rest-toggle");
-const toggles = document.querySelectorAll(".track");
+
 
 toggles.forEach((toggle) => {
   toggle.addEventListener("click", () => {
@@ -266,24 +269,24 @@ let woodBlockIntervalId;
 
 const startTheTimer = () => {
   timerRunning = true;
-  document.querySelectorAll("button").forEach((button) => {
-    button.classList.toggle("fade");
-  });
+//   document.querySelectorAll("button").forEach((button) => {
+//     button.classList.toggle("fade");
+//   });
 
-  minIntervalDown.disabled = true;
-  minIntervalUp.disabled = true;
-  maxIntervalDown.disabled = true;
-  maxIntervalUp.disabled = true;
-  minBpmDown.disabled = true;
-  minBpmUp.disabled = true;
-  maxBpmDown.disabled = true;
-  maxBpmUp.disabled = true;
-  minRestDown.disabled = true;
-  minRestUp.disabled = true;
-  maxRestDown.disabled = true;
-  maxRestUp.disabled = true;
-  document.getElementById("start-button").disabled = true;
-  document.getElementById("stop-button").disabled = false;
+//   minIntervalDown.disabled = true;
+//   minIntervalUp.disabled = true;
+//   maxIntervalDown.disabled = true;
+//   maxIntervalUp.disabled = true;
+//   minBpmDown.disabled = true;
+//   minBpmUp.disabled = true;
+//   maxBpmDown.disabled = true;
+//   maxBpmUp.disabled = true;
+//   minRestDown.disabled = true;
+//   minRestUp.disabled = true;
+//   maxRestDown.disabled = true;
+//   maxRestUp.disabled = true;
+//   document.getElementById("start-button").disabled = true;
+//   document.getElementById("stop-button").disabled = false;
 
   function startCountdown() {
     if (intervalSwitch) {
@@ -356,6 +359,26 @@ const startTheTimer = () => {
 };
 
 document.getElementById("start-button").addEventListener("click", () => {
+    document.querySelectorAll("button").forEach((button) => {
+    button.classList.toggle("fade");
+  });
+toggles.forEach(toggle=>{
+    toggle.classList.toggle('fade')
+})
+  minIntervalDown.disabled = true;
+  minIntervalUp.disabled = true;
+  maxIntervalDown.disabled = true;
+  maxIntervalUp.disabled = true;
+  minBpmDown.disabled = true;
+  minBpmUp.disabled = true;
+  maxBpmDown.disabled = true;
+  maxBpmUp.disabled = true;
+  minRestDown.disabled = true;
+  minRestUp.disabled = true;
+  maxRestDown.disabled = true;
+  maxRestUp.disabled = true;
+  document.getElementById("start-button").disabled = true;
+  document.getElementById("stop-button").disabled = false;
   timerRunning = true;
   startTheTimer();
 
@@ -374,7 +397,7 @@ document.getElementById("start-button").addEventListener("click", () => {
       clearInterval(woodBlockIntervalId);
       resting = false;
       timerRunning = false;
-      setTimeout(startTheTimer, rest * 1000);
+      handleTimer = setTimeout(startTheTimer, rest * 1000);
     }
     changeBG();
   }, 1000);
@@ -398,10 +421,14 @@ document.getElementById("stop-button").addEventListener("click", () => {
   clearInterval(intervalId);
   clearInterval(woodBlockIntervalId);
   clearInterval(handleRest);
+  clearTimeout(handleTimer)
   intervalId = null;
   document.querySelectorAll("button").forEach((button) => {
     button.classList.toggle("fade");
   });
+  toggles.forEach(toggle=>{
+    toggle.classList.toggle('fade')
+})
   minIntervalDown.disabled = false;
   minIntervalUp.disabled = false;
   maxIntervalDown.disabled = false;
