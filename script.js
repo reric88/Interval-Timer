@@ -25,6 +25,10 @@ const bpmToggle = document.querySelector("#bpm-toggle");
 const restToggle = document.querySelector("#rest-toggle");
 const toggles = document.querySelectorAll(".track");
 
+const getHelp = document.querySelector('.get-help')
+const helpMenu = document.querySelector('.help')
+const helpOK = document.querySelector('.ok')
+
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -200,6 +204,12 @@ maxRestUp.addEventListener("click", () => {
   maxRestVal.innerHTML = restMax;
 });
 
+getHelp.addEventListener('click', ()=>{
+    helpMenu.classList.toggle('help-up')
+})
+helpOK.addEventListener('click', ()=>{
+    helpMenu.classList.toggle('help-up')
+})
 
 
 toggles.forEach((toggle) => {

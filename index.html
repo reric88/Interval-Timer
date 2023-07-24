@@ -18,6 +18,39 @@
     <title>Timer</title>
   </head>
   <body>
+    <div class="help help-up">
+        <!-- <h1>Instructions</h1> -->
+        <section>
+            <h2>Interval</h2>
+            <ul>
+                <li>With the interval, you can control how long your specified BPM will play.</li>
+                <li>Enable the randomizer to randomly choose a value between the minimum and maximum settings.</li>
+                <li>If you don't want a random value, leave the randomizer off and set the Maximum value to your desired amount.</li>
+                <li>Use the 'lock' to lock or unlock the interval.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>BPM</h2>
+            <ul>
+                <li>Control the Tempo using the BPM setting</li>
+                <li>Enable the randomizer to randomly choose a value between the minimum and maximum settings.</li>
+                <li>If you don't want a random value, leave the randomizer off and set the Maximum value to your desired amount.</li>
+                <li>There will be an audible "tick" to the specified beat. More sounds to come at a later date.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Rest</h2>
+            <ul>
+                <li>Set a rest period between intervals</li>
+                <li>Enable the randomizer to randomly choose a value between the minimum and maximum settings.</li>
+                <li>If you don't want a random value, leave the randomizer off and set the Maximum value to your desired amount.</li>
+                <li>This will be a period between intervals where the interval and BPM do not continue. After the rest period, the interval will reset and continue.</li>
+                <li>To skip using the rest period, lock the interval.</li>
+            </ul>
+        </section>
+            <button class="ok" id="ok">OK!</button>
+
+    </div>
     <div id="root">
       <!-- <div class="countdown-window"></div> -->
 
@@ -32,8 +65,11 @@
                     <div class="slider"></div>
                     <span class="on-off switch-off">OFF</span>
                     <span class="on-off switch-on">ON</span>
+                    <h5 class="randomize-toggle">Randomize</h5>
+
                 </div>
                 <button id="interval-lock"><i class="fa-solid fa-lock-open"></i></button>
+                
             </div>
           <div class="selected-value-div">
             <p>Minimum (seconds)</p>
@@ -64,6 +100,8 @@
                 <div class="slider"></div>
                 <span class="on-off switch-off">OFF</span>
                 <span class="on-off switch-on">ON</span>
+                <h5 class="randomize-toggle">Randomize</h5>
+
           </div>
           <div class="selected-value-div">
                 <p>Minimum</p>
@@ -96,9 +134,10 @@
         <span id="rest-display">--</span>
     </div>
     <div class="track" id="rest-toggle">
-                    <div class="slider"></div>
-                    <span class="on-off switch-off">OFF</span>
-                    <span class="on-off switch-on">ON</span>
+        <div class="slider"></div>
+        <span class="on-off switch-off">OFF</span>
+        <span class="on-off switch-on">ON</span>
+        <h5 class="randomize-toggle">Randomize</h5>
     </div>
       <div class="selected-value-div">
         <p>Minimum (seconds)</p>
@@ -115,6 +154,7 @@
       </div>
       <div class="start-stop">
         <button class="start-stop-buttons fade" id="stop-button" disabled>STOP</button>
+        <button class="get-help">HELP</button>
         <button class="start-stop-buttons" id="start-button">START</button>
       </div>
     </div>
