@@ -350,7 +350,7 @@ text-align: center;
 }
 
 .help-up {
-    transform: translateY(-105%);
+    transform: translateY(-120%);
     transition: 500ms ease;
 }
 
